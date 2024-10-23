@@ -8,6 +8,13 @@ let word; // 제시어
 const onInput = (event) => {
     newWord = event.target.value;
 };
+const inputByEnter = (event) => {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        onClickButton();
+    }
+};
+
 const onClickButton = () => {
     if (!word || word.at(-1) === newWord[0]) {
         // 비어 있음
@@ -26,4 +33,5 @@ const onClickButton = () => {
     $input.focus();
 };
 $input.addEventListener("input", onInput);
+$input.addEventListener("keypress", inputByEnter);
 $button.addEventListener("click", onClickButton);
