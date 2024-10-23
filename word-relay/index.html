@@ -33,6 +33,8 @@
                     } else {
                         $order.textContent = order + 1;
                     }
+                    $input.value = '';
+                    $input.focus();
                 } else {
                     // 비어 있지 않음
                     if (word.at(-1) === newWord[0]) { // 제시어가 맞는 단어인가?
@@ -45,10 +47,13 @@
                         } else {
                             $order.textContent = order + 1;
                         }
+                        $input.value = '';
+                        $input.focus();
                     } else {
                         // 틀린 단어
-
-
+                        alert("틀린 단어입니다!");
+                        $input.value = '';
+                        $input.focus();
                     }
                 }
             };
