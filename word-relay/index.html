@@ -20,10 +20,10 @@
             let newWord; // 현재 단어
             let word; // 제시어
             const onInput = (event) => {
-                newWord = event.target.value; // NOTE 입력한 단어를 현재 단어로 저장
+                newWord = event.target.value;
             };
             const onClickButton = () => {
-                if (!word || word.at(-1) === newWord[0]) { // 제시어가 비어 있는가?
+                if (!word || word.at(-1) === newWord[0]) {
                     // 비어 있음
                     word = newWord;
                     $word.textContent = word;
@@ -34,7 +34,6 @@
                         $order.textContent = order + 1;
                     }
                 } else {
-                    // 틀린 단어
                     alert("틀린 단어입니다!");
                 }
                 $input.value = '';
