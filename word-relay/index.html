@@ -23,7 +23,7 @@
                 newWord = event.target.value; // NOTE 입력한 단어를 현재 단어로 저장
             };
             const onClickButton = () => {
-                if (!word) { // 제시어가 비어 있는가?
+                if (!word || word.at(-1) === newWord[0]) { // 제시어가 비어 있는가?
                     // 비어 있음
                     word = newWord;
                     $word.textContent = word;
@@ -33,29 +33,13 @@
                     } else {
                         $order.textContent = order + 1;
                     }
-                    $input.value = '';
-                    $input.focus();
                 } else {
-                    // 비어 있지 않음
-                    if (word.at(-1) === newWord[0]) { // 제시어가 맞는 단어인가?
-                        // 맞는 단어
-                        word = newWord; // 현재 단어를 제시어에 저장
-                        $word.textContent = word; // 화면에 제시어 표시
-                        const order = Number($order.textContent);
-                        if (order + 1 > number) {
-                            $order.textContent = 1;
-                        } else {
-                            $order.textContent = order + 1;
-                        }
-                        $input.value = '';
-                        $input.focus();
-                    } else {
-                        // 틀린 단어
-                        alert("틀린 단어입니다!");
-                        $input.value = '';
-                        $input.focus();
-                    }
+                    // 틀린 단어
+                    alert("틀린 단어입니다!");
                 }
+                $input.value = '';
+                $input.focus();
+
             };
             $input.addEventListener("input", onInput);
             $button.addEventListener("click", onClickButton);
