@@ -28,7 +28,7 @@
                     word = newWord;
                     $word.textContent = word;
                     const order = Number($order.textContent);
-                    if (order + 1 > nnumber) {
+                    if (order + 1 > number) {
                         $order.textContent = 1;
                     } else {
                         $order.textContent = order + 1;
@@ -40,7 +40,7 @@
                         word = newWord; // 현재 단어를 제시어에 저장
                         $word.textContent = word; // 화면에 제시어 표시
                         const order = Number($order.textContent);
-                        if (order + 1 > nnumber) {
+                        if (order + 1 > number) {
                             $order.textContent = 1;
                         } else {
                             $order.textContent = order + 1;
